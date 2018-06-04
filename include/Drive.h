@@ -19,9 +19,6 @@ class Drive {
   //Constructor (Will initialize the bot)
   Drive();
 
-  //Resets all the bot variables (Will be called in constructor)
-  void reset();
-
   //Motor ports of the drive side (First half is right side, second half is left side)
   std::vector<unsigned char> driveMotors;
 
@@ -31,6 +28,19 @@ class Drive {
   //This will automatically attempt to reach desiredRotation and desiredDistance
   //Must be run in a loop
   void updateDrive();
+
+  //Set desired variables
+  void moveTo(int);
+  void turnTo(int);
+
+  //Gets current variables
+  int getCurrentDistance();
+  int getCurrentRotation();
+
+  //Functions used to reset values (reset() will be called on construction)
+  void resetDistance();
+  void resetRotation();
+  void reset();
 
 private:
   //Sets the motor speed of the drive side (True is right side)
