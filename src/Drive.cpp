@@ -13,3 +13,20 @@ void Drive::addDriveMotor(int motorPort, bool rightSide) {
     driveMotors.push_back(motorPort);
   }
 }
+
+void Drive::setDriveSideSpeed(bool rightSide, int speed) {
+  //Where the iterator should begin
+  int start = 0;
+
+  //Where the iterator should end
+  int end = driveMotors.size()/2;
+
+  if(!rightSide) {
+    start += driveMotors.size()/2;
+    end += driveMotors.size()/2;
+  }
+
+  for(; start < end; start++) {
+    motorSet(driveMotors.get(start), speed);
+  }
+}

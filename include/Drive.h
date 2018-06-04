@@ -23,10 +23,10 @@ class Drive {
   void reset();
 
   //Motor ports of the drive side (First half is right side, second half is left side)
-  std::vector<int> driveMotors;
+  std::vector<unsigned char> driveMotors;
 
   //Set port as a drive motor (Boolean will be true if motor is on the right side)
-  void addDriveMotor(int, bool);
+  void addDriveMotor(unsigned char, bool);
 
   //This will automatically attempt to reach desiredRotation and desiredDistance
   //Must be run in a loop
@@ -35,8 +35,5 @@ class Drive {
 private:
   //Sets the motor speed of the drive side (True is right side)
   void setDriveSideSpeed(bool, int);
-
-  //Sets the motor speed from the port
-  void setMotorSpeed(int, int);
 
 };
